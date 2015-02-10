@@ -16,10 +16,10 @@ Device ID: <input type="text" id="deviceID" name="deviceID" placeholder="Input D
 <form action="/" id="searchForm">
   
 <h2>3. Controls</h2>
-Click one of the buttons below to send a RGB command to your Spark Core.
+Click one of the buttons below to send a command to your Spark Core.
 <br/><br/>
 
-Color 1: 
+
 <button id="Unlock">Unlock</button>
 <button id="Lock">Lock</button>
 <button id="Trunk">Trunk</button>
@@ -31,9 +31,6 @@ Color 1:
 
 <!-- the result of the search will be rendered inside this div -->
 <br/><div id="result" style="font-weight: bold;"></div>
-
-<h2>4. Cleanup</h2>
-<a href="http://docs.spark.io/api/#authentication-deleting-an-access-token">How to Delete My Token</a>
 
 <script>
 var color1 = "255000000";
