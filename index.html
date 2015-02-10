@@ -16,18 +16,18 @@ Device ID: <input type="text" id="deviceID" name="deviceID" placeholder="Input D
 <h2>3. Controls</h2>
 Click one of the buttons below to send a remote command to your Spark Core.
 
-<form action="/" id="searchForm">
+<form action="/" id="submitForm">
   
 <br/><br/>
 
 
-<button style="width: 450px; height: 150px;" id="Unlock"><font size="8">Unlock</font></button>
+<button id="unlock" style="width: 450px; height: 150px;" id="Unlock"><font size="8">Unlock</font></button>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button style="width: 450px; height: 150px;" id="Lock"><font size="8">Lock</font></button>
+<button id="lock" style="width: 450px; height: 150px;" id="Lock"><font size="8">Lock</font></button>
 <br><br><br>
-<button style="width: 450px; height: 150px;" id="Trunk"><font size="8">Trunk</font></button>
+<button id="trunk" style="width: 450px; height: 150px;" id="Trunk"><font size="8">Trunk</font></button>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button style="width: 450px; height: 150px;" id="Start"><font size="8">Start</font></button>
+<button id="start" style="width: 450px; height: 150px;" id="Start"><font size="8">Start</font></button>
 
 <br/><br/>
 
@@ -36,10 +36,14 @@ Raw Command: <input type="text" id="commandToSend" disabled=true name="s" placeh
 
 </form>
 
-<!-- the result of the search will be rendered inside this div -->
+<!-- the result of the command will be rendered inside this div -->
 <br/><div id="result" style="font-weight: bold;"></div>
 
 <script>
+
+// Need a function string variable 
+var fn = "NO_COMMAND_SET";
+
 $("#unlock").click( function()
 {
   fn = "unlock";
@@ -63,12 +67,10 @@ $("#start").click( function()
 
 function updateCommand()
 {
-  
-    $( "#commandToSend" ).val("" + fn);
-  
+  $( "#commandToSend" ).val("" + fn);
 }
 // Attach a submit handler to the form
-$( "#searchForm" ).submit(function( event ) {
+$( "#submitForm" ).submit(function( event ) {
   // Stop form from submitting normally
   event.preventDefault();
   $( "#result" ).empty().append("Sending...");
@@ -79,7 +81,7 @@ $( "#searchForm" ).submit(function( event ) {
     accessToken = $("#accessToken").val(),
     deviceID = $( "#deviceID" ).val();
  
-  var url = "https://api.spark.io/v1/devices/" + deviceID + "/rgb";
+  var url = "https://api.spark.io/v1/devices/" + deviceID + "/remoteControl";
   // Send the data using post
   var posting = $.post( url, { args: term, access_token: accessToken} );
  
