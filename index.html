@@ -31,143 +31,31 @@ Device ID: <input type="text" id="deviceID" name="deviceID" placeholder="Input D
 <br/><div id="result" style="font-weight: bold;"></div>
 
 <script>
-var color1 = "255000000";
-var color2 = "000000255";
-var fn = "b";
-var speed = "m";
-var twoColor = false;
-$("#blink").click( function()
+$("#unlock").click( function()
 {
-  fn = "b";
+  fn = "unlock";
   updateCommand();
 });
-$("#fade").click( function()
+$("#lock").click( function()
 {
-  fn = "f";
+  fn = "lock";
   updateCommand();
 });
-$("#breath").click( function()
+$("#trunk").click( function()
 {
-  fn = "r";
+  fn = "trunk";
   updateCommand();
 });
-$("#slow").click( function()
+$("#start").click( function()
 {
-  speed = "s";
+  fn = "start";
   updateCommand();
 });
-$("#medium").click( function()
-{
-  speed = "m";
-  updateCommand();
-});
-$("#fast").click( function()
-{
-  speed = "f";
-  updateCommand();
-});
-$("#oneColor").click( function()
-{
-  twoColor = false;
-  updateCommand();
-});
-$("#twoColor").click( function()
-{
-  twoColor = true;
-  updateCommand();
-});
-$("#clr1Red").click( function()
-{
-  color1 = "255000000";
-  updateCommand();
-});
-$("#clr1Yellow").click( function()
-{
-  color1 = "255255000";
-  updateCommand();
-});
-$("#clr1Green").click( function()
-{
-  color1 = "000255000";
-  updateCommand();
-});
-$("#clr1Cyan").click( function()
-{
-  color1 = "000255255";
-  updateCommand();
-});
-$("#clr1Blue").click( function()
-{
-  color1 = "000000255";
-  updateCommand();
-});
-$("#clr1Magenta").click( function()
-{
-  color1 = "255000255";
-  updateCommand();
-});
-$("#clr2Red").click( function()
-{
-  color2 = "255000000";
-  updateCommand();
-});
-$("#clr2Yellow").click( function()
-{
-  color2 = "255255000";
-  updateCommand();
-});
-$("#clr2Green").click( function()
-{
-  color2 = "000255000";
-  updateCommand();
-});
-$("#clr2Cyan").click( function()
-{
-  color2 = "000255255";
-  updateCommand();
-});
-$("#clr2Blue").click( function()
-{
-  color2 = "000000255";
-  updateCommand();
-});
-$("#clr2Magenta").click( function()
-{
-  color2 = "255000255";
-  updateCommand();
-});
-$("#deleteToken").click( function()
-{
-  alert("Woo!");
-});
-$("#flashFirmware").click( function()
-{
-  $( "#flashFirmware").prop("disabled",false);
-  var accessToken = $("#accessToken").val();
-  var deviceID = $( "#deviceID" ).val();
-  var url = "putFirmware.php?deviceID=" + deviceID + "&accessToken=" + accessToken;
-  console.log(url);
-  var getPushFirmware = $.get(url);
-  getPushFirmware.done(function (data)
-  {
-    $( "#flashFirmware").prop("disabled",false);
-    console.log(data);
-    if(data.status == "Update started")
-      $( "#result" ).empty().append( "Firmware sent. Please wait until it is flashing a rainbow! ");
-    else
-      $( "#result" ).empty().append( "Firmware upload failed! ");
-  });
-  getPushFirmware.error(function (data) {
-    $( "#flashFirmware").prop("disabled",false);
-    $( "#result" ).empty().append( "Firmware sent. Please wait until it is flashing a rainbow! ");
-  });
-});
+
 function updateCommand()
 {
-  if(twoColor == true)
-    $( "#commandToSend" ).val("" + fn + speed + color1 + color2);
-  else
-    $( "#commandToSend" ).val("" + fn + speed + color1);  
+  
+    $( "#commandToSend" ).val("" + fn);
   
 }
 // Attach a submit handler to the form
