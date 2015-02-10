@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>G8 Starter</title>
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+<h1>G8 Starter</h1>
+
+<h2>1. Spark Core Config</h2>
+Access Token: <input type="text" id="accessToken" name="accessToken" placeholder="Input Access Token"><br/><br/>
+Device ID: <input type="text" id="deviceID" name="deviceID" placeholder="Input Device ID">
+
+<form action="/" id="searchForm">
+  
+<h2>3. Controls</h2>
+Click one of the buttons below to send a RGB command to your Spark Core.
+<br/><br/>
+
+Color 1: 
+<button id="Unlock">Unlock</button>
+<button id="Lock">Lock</button>
+<button id="Trunk">Trunk</button>
+<button id="Start">Start</button>
+
+<br/><br/>
+
+</form>
+
+<!-- the result of the search will be rendered inside this div -->
+<br/><div id="result" style="font-weight: bold;"></div>
+
+<h2>4. Cleanup</h2>
+<a href="http://docs.spark.io/api/#authentication-deleting-an-access-token">How to Delete My Token</a>
+
+<script>
+var color1 = "255000000";
+var color2 = "000000255";
+var fn = "b";
+var speed = "m";
+var twoColor = false;
+$("#blink").click( function()
+{
+  fn = "b";
+  updateCommand();
+});
+$("#fade").click( function()
+{
+  fn = "f";
+  updateCommand();
+});
+$("#breath").click( function()
+{
+  fn = "r";
+  updateCommand();
+});
+$("#slow").click( function()
+{
+  speed = "s";
+  updateCommand();
+});
+$("#medium").click( function()
+{
+  speed = "m";
+  updateCommand();
+});
+$("#fast").click( function()
+{
+  speed = "f";
+  updateCommand();
+});
+$("#oneColor").click( function()
+{
+  twoColor = false;
+  updateCommand();
+});
+$("#twoColor").click( function()
+{
+  twoColor = true;
+  updateCommand();
+});
+$("#clr1Red").click( function()
+{
+  color1 = "255000000";
+  updateCommand();
+});
+$("#clr1Yellow").click( function()
+{
+  color1 = "255255000";
+  updateCommand();
+});
+$("#clr1Green").click( function()
+{
+  color1 = "000255000";
+  updateCommand();
+});
+$("#clr1Cyan").click( function()
+{
+  color1 = "000255255";
+  updateCommand();
+});
+$("#clr1Blue").click( function()
+{
+  color1 = "000000255";
+  updateCommand();
+});
+$("#clr1Magenta").click( function()
+{
+  color1 = "255000255";
+  updateCommand();
+});
+$("#clr2Red").click( function()
+{
+  color2 = "255000000";
+  updateCommand();
+});
+$("#clr2Yellow").click( function()
+{
+  color2 = "255255000";
+  updateCommand();
+});
+$("#clr2Green").click( function()
+{
+  color2 = "000255000";
+  updateCommand();
+});
+$("#clr2Cyan").click( function()
+{
+  color2 = "000255255";
+  updateCommand();
+});
+$("#clr2Blue").click( function()
+{
+  color2 = "000000255";
+  updateCommand();
+});
+$("#clr2Magenta").click( function()
+{
+  color2 = "255000255";
+  updateCommand();
+});
+$("#deleteToken").click( function()
+{
+  alert("Woo!");
+});
+$("#flashFirmware").click( function()
+{
+  $( "#flashFirmware").prop("disabled",false);
+  var accessToken = $("#accessToken").val();
+  var deviceID = $( "#deviceID" ).val();
+  var url = "putFirmware.php?deviceID=" + deviceID + "&accessToken=" + accessToken;
+  console.log(url);
+  var getPushFirmware = $.get(url);
+  getPushFirmware.done(function (data)
+  {
+    $( "#flashFirmware").prop("disabled",false);
+    console.log(data);
+    if(data.status == "Update started")
+      $( "#result" ).empty().append( "Firmware sent. Please wait until it is flashing a rainbow! ");
+    else
+      $( "#result" ).empty().append( "Firmware upload failed! ");
+  });
+  getPushFirmware.error(function (data) {
+    $( "#flashFirmware").prop("disabled",false);
+    $( "#result" ).empty().append( "Firmware sent. Please wait until it is flashing a rainbow! ");
+  });
+});
+function updateCommand()
+{
+  if(twoColor == true)
+    $( "#commandToSend" ).val("" + fn + speed + color1 + color2);
+  else
+    $( "#commandToSend" ).val("" + fn + speed + color1);  
+  
+}
+// Attach a submit handler to the form
+$( "#searchForm" ).submit(function( event ) {
+  // Stop form from submitting normally
+  event.preventDefault();
+  $( "#result" ).empty().append("Sending...");
+  $( "#sendButton").prop("disabled",true);
+  // Get some values from elements on the page:
+  var $form = $( this ),
+    term = $form.find( "input[name='s']" ).val(),
+    accessToken = $("#accessToken").val(),
+    deviceID = $( "#deviceID" ).val();
+ 
+  var url = "https://api.spark.io/v1/devices/" + deviceID + "/rgb";
+  // Send the data using post
+  var posting = $.post( url, { args: term, access_token: accessToken} );
+ 
+  // Put the results in a div
+  posting.done(function( data ) {
+    $( "#sendButton").prop("disabled",false);
+    if(data.return_value > 0)
+      $( "#result" ).empty().append( "Command succeeded! ");
+    else
+      $( "#result" ).empty().append( "Command failed! ");
+    console.log(data);
+  });
+  posting.error(function (data) {
+    $( "#sendButton").prop("disabled",false);
+    $( "#result" ).empty().append( "Command failed! Did you forget to fill out the device ID and access token?");
+  });
+});
+</script>
+
+</body>
+</html>
