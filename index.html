@@ -46,22 +46,22 @@ var fn = "NO_COMMAND_SET";
 
 $("#unlock").click( function()
 {
-  fn = "unlock";
+  fn = "UNLOCK";
   updateCommand();
 });
 $("#lock").click( function()
 {
-  fn = "lock";
+  fn = "LOCK";
   updateCommand();
 });
 $("#trunk").click( function()
 {
-  fn = "trunk";
+  fn = "TRUNK";
   updateCommand();
 });
 $("#start").click( function()
 {
-  fn = "start";
+  fn = "START";
   updateCommand();
 });
 
@@ -81,7 +81,7 @@ $( "#submitForm" ).submit(function( event ) {
     accessToken = $("#accessToken").val(),
     deviceID = $( "#deviceID" ).val();
  
-  var url = "https://api.spark.io/v1/devices/" + deviceID + "/remoteControl";
+  var url = "https://api.spark.io/v1/devices/" + deviceID + "/rc";
   // Send the data using post
   var posting = $.post( url, { args: term, access_token: accessToken} );
  
