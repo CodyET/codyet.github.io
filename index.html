@@ -81,7 +81,7 @@ $( "#submitForm" ).submit(function( event ) {
     accessToken = $("#accessToken").val(),
     deviceID = $( "#deviceID" ).val();
  
-  var url = "https://api.spark.io/v1/devices/" + deviceID + "/remoteContro";
+  var url = "https://api.spark.io/v1/devices/" + deviceID + "/rc";
   // Send the data using post
   var posting = $.post( url, { args: term, access_token: accessToken} );
  
