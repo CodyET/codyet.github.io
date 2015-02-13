@@ -7,27 +7,25 @@
 </head>
 <body>
 
-<h1>G8 Starter</h1>
 
-<h2>1. Spark Core Config</h2>
-<h1>Access Token: <input type="text" id="accessToken" name="accessToken" placeholder="Input Access Token"><br/><br/>
-Device ID: <input type="text" id="deviceID" name="deviceID" placeholder="Input Device ID"></h1>
+Access Token: <input type="text" id="accessToken" name="accessToken" value="4a01ea37e04076c00ff870c24aee67b62b4122c0"><br/><br/>
+Device ID: <input type="text" id="deviceID" name="deviceID" value="54ff71066672524842511067">
 
-<h2>3. Controls</h2>
-Click one of the buttons below to send a remote command to your Spark Core.
 
 <form action="/" id="submitForm">
   
 <br/><br/>
 
 
-<button id="unlock" style="width: 450px; height: 150px;" id="Unlock"><font size="8">Unlock</font></button>
+<button id="unlock" style="width: 450px; height: 300px;" id="Unlock"><font size="10">Unlock</font></button>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button id="lock" style="width: 450px; height: 150px;" id="Lock"><font size="8">Lock</font></button>
+<button id="lock" style="width: 450px; height: 300px;" id="Lock"><font size="10">Lock</font></button>
 <br><br><br>
-<button id="trunk" style="width: 450px; height: 150px;" id="Trunk"><font size="8">Trunk</font></button>
+<button id="trunk" style="width: 450px; height: 300px;" id="Trunk"><font size="10">Trunk</font></button>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button id="start" style="width: 450px; height: 150px;" id="Start"><font size="8">Start</font></button>
+<button id="start" style="width: 450px; height: 300px;" id="Start"><font size="10">Start</font></button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button id="Stopeng" style="width: 900px; height: 300px;" id="Stop Engine"><font size="10">Start</font></button>
 
 <br/><br/>
 
@@ -60,6 +58,11 @@ $("#trunk").click( function()
 $("#start").click( function()
 {
   fn = "START";
+  updateCommand();
+});
+$("#stopeng").click( function()
+{
+  fn = "stopeng";
   updateCommand();
 });
 function updateCommand()
