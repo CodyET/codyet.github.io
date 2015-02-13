@@ -29,7 +29,7 @@ Click one of the buttons below to send a remote command to your Spark Core.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <button id="start" style="width: 478px; height: 150px;" id="Start"><font size="8">Start</font></button>
 <br><br><br>
-<button id="eng" style="width: 985px; height: 150px;" id="Stop Engine"><font size="8">Stop Engine</font></button>
+<button id="eng" style="width: 985px; height: 150px;" id="Eng"><font size="8">Stop Engine</font></button>
 <br><br><br>
 <button id="slptwo" style="width: 130px; height: 50px;" id="Slptwo"><font size="3">Sleep 2 Hours</font></button>
 &nbsp;
@@ -80,7 +80,7 @@ $("#start").click( function()
   fn = "START";
   updateCommand();
 });
-$("#stopeng").click( function()
+$("#eng").click( function()
 {
   fn = "ENG";
   updateCommand();
@@ -105,17 +105,17 @@ $("#slptwlv").click( function()
   fn = "SLPTWLV";
   updateCommand();
 });
-$("#slp1d").click( function()
+$("#slp1day").click( function()
 {
   fn = "SLP1DAY";
   updateCommand();
 });
-$("#slp2d").click( function()
+$("#slp2day").click( function()
 {
   fn = "SLP2DAY";
   updateCommand();
 });
-$("#slp3d").click( function()
+$("#slp3day").click( function()
 {
   fn = "SLP3DAY";
   updateCommand();
