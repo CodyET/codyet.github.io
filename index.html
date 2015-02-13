@@ -39,11 +39,11 @@ Click one of the buttons below to send a remote command to your Spark Core.
 &nbsp;
 <button id="slptwlv" style="width: 130px; height: 50px;" id="slptwlv"><font size="3">Sleep 12 Hours</font></button>
 &nbsp;
-<button id="slp1d" style="width: 130px; height: 50px;" id="slp1d"><font size="3">Sleep 1 Day</font></button>
+<button id="slp1day" style="width: 130px; height: 50px;" id="slp1day"><font size="3">Sleep 1 Day</font></button>
 &nbsp;
-<button id="slp2d" style="width: 130px; height: 50px;" id="slp2d"><font size="3">Sleep 2 Days</font></button>
+<button id="slp2day" style="width: 130px; height: 50px;" id="slp2day"><font size="3">Sleep 2 Days</font></button>
 &nbsp;
-<button id="slp3d" style="width: 130px; height: 50px;" id="slp3d"><font size="3">Sleep 3 Days</font></button>
+<button id="slp3day" style="width: 130px; height: 50px;" id="slp3day"><font size="3">Sleep 3 Days</font></button>
 <br/><br/>
 
 
@@ -107,17 +107,17 @@ $("#slptwlv").click( function()
 });
 $("#slp1d").click( function()
 {
-  fn = "SLP1D";
+  fn = "SLP1DAY";
   updateCommand();
 });
 $("#slp2d").click( function()
 {
-  fn = "SLP2D";
+  fn = "SLP2DAY";
   updateCommand();
 });
 $("#slp3d").click( function()
 {
-  fn = "SLP3D";
+  fn = "SLP3DAY";
   updateCommand();
 });
 function updateCommand()
