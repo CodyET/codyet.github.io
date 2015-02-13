@@ -17,29 +17,29 @@ Device ID: <input type="text" id="deviceID" name="deviceID" value="54ff710666725
 <br/><br/>
 
 
-<button id="unlock" style="width: 478px; height: 150px;" id="Unlock"><font size="8">Unlock</font></button>
+<button id="unlock" style="width: 465px; height: 300px;" id="Unlock"><font size="12">Unlock</font></button>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button id="lock" style="width: 478px; height: 150px;" id="Lock"><font size="8">Lock</font></button>
+<button id="lock" style="width: 465px; height: 300px;" id="Lock"><font size="12">Lock</font></button>
 <br><br><br>
-<button id="trunk" style="width: 478px; height: 150px;" id="Trunk"><font size="8">Trunk</font></button>
+<button id="trunk" style="width: 465px; height: 300px;" id="Trunk"><font size="12">Trunk</font></button>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button id="start" style="width: 478px; height: 150px;" id="Start"><font size="8">Start</font></button>
+<button id="start" style="width: 465px; height: 300px;" id="Start"><font size="12">Start</font></button>
 <br><br><br>
-<button id="eng" style="width: 985px; height: 150px;" id="Stop Engine"><font size="8">Stop Engine</font></button>
+<button id="eng" style="width: 970px; height: 150px;" id="Stop Engine"><font size="8">Stop Engine</font></button>
 <br><br><br>
-<button id="slptwo" style="width: 130px; height: 50px;" id="Slptwo"><font size="3">Sleep 2 Hours</font></button>
+<button id="slptwo" style="width: 125px; height: 50px;" id="Slptwo"><font size="3">Sleep 2 Hours</font></button>
 &nbsp;
-<button id="slpfour" style="width: 130px; height: 50px;" id="slpfour"><font size="3">Sleep 4 Hours</font></button>
+<button id="slpfour" style="width: 125px; height: 50px;" id="slpfour"><font size="3">Sleep 4 Hours</font></button>
 &nbsp;
-<button id="slpeight" style="width: 130px; height: 50px;" id="slpeight"><font size="3">Sleep 8 Hours</font></button>
+<button id="slpeight" style="width: 125px; height: 50px;" id="slpeight"><font size="3">Sleep 8 Hours</font></button>
 &nbsp;
-<button id="slptwlv" style="width: 130px; height: 50px;" id="slptwlv"><font size="3">Sleep 12 Hours</font></button>
+<button id="slptwlv" style="width: 128px; height: 50px;" id="slptwlv"><font size="3">Sleep 12 Hours</font></button>
 &nbsp;
-<button id="slp1day" style="width: 130px; height: 50px;" id="slp1day"><font size="3">Sleep 1 Day</font></button>
+<button id="slp1day" style="width: 125px; height: 50px;" id="slp1day"><font size="3">Sleep 1 Day</font></button>
 &nbsp;
-<button id="slp2day" style="width: 130px; height: 50px;" id="slp2day"><font size="3">Sleep 2 Days</font></button>
+<button id="slp2day" style="width: 125px; height: 50px;" id="slp2day"><font size="3">Sleep 2 Days</font></button>
 &nbsp;
-<button id="slp3day" style="width: 130px; height: 50px;" id="slp3day"><font size="3">Sleep 3 Days</font></button>
+<button id="slp3day" style="width: 125px; height: 50px;" id="slp3day"><font size="3">Sleep 3 Days</font></button>
 <br/><br/>
 
 Raw Command: <input type="text" id="commandToSend" disabled=true name="s" placeholder="Command">
@@ -73,7 +73,7 @@ $("#start").click( function()
   fn = "START";
   updateCommand();
 });
-$("#stopeng").click( function()
+$("#eng").click( function()
 {
   fn = "ENG";
   updateCommand();
@@ -98,17 +98,17 @@ $("#slptwlv").click( function()
   fn = "SLPTWLV";
   updateCommand();
 });
-$("#slp1d").click( function()
+$("#slp1day").click( function()
 {
   fn = "SLP1DAY";
   updateCommand();
 });
-$("#slp2d").click( function()
+$("#slp2day").click( function()
 {
   fn = "SLP2DAY";
   updateCommand();
 });
-$("#slp3d").click( function()
+$("#slp3day").click( function()
 {
   fn = "SLP3DAY";
   updateCommand();
