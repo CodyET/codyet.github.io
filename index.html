@@ -28,7 +28,8 @@ Click one of the buttons below to send a remote command to your Spark Core.
 <button id="trunk" style="width: 450px; height: 150px;" id="Trunk"><font size="8">Trunk</font></button>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <button id="start" style="width: 450px; height: 150px;" id="Start"><font size="8">Start</font></button>
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button id="Stopeng" style="width: 450px; height: 150px;" id="Stop Engine"><font size="8">Start</font></button>
 <br/><br/>
 
 Raw Command: <input type="text" id="commandToSend" disabled=true name="s" placeholder="Command">
@@ -62,6 +63,11 @@ $("#trunk").click( function()
 $("#start").click( function()
 {
   fn = "START";
+  updateCommand();
+});
+$("#stopeng").click( function()
+{
+  fn = "stopeng";
   updateCommand();
 });
 
