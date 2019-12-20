@@ -136,7 +136,7 @@ $( "#submitForm" ).submit(function( event ) {
     accessToken = $("#accessToken").val(),
     deviceID = $( "#deviceID" ).val();
  
-  var url = "https://api.spark.io/v1/devices/" + deviceID + "/rc";
+  var url = "https://api.particle.io/v1/devices/" + deviceID + "/rc";
   // Send the data using post
   var posting = $.post( url, { args: term, access_token: accessToken} );
  
